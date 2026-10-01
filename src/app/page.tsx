@@ -1,7 +1,9 @@
 "use client";
 
 import {  Box } from '@mui/material';
+import { Suspense } from "react";
 import ProductList from '../components/ProductList';
+import Loader from '../components/Loader';
 
 export default function HomePage() {
   return (
@@ -24,8 +26,9 @@ export default function HomePage() {
           Discover amazing products at great prices
         </Typography>
       </Box> */}
-      
-      <ProductList />
+       <Suspense fallback={<Loader />}>
+          <ProductList />
+       </Suspense>
     </Box>
   );
 }
